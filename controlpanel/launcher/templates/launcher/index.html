@@ -1,0 +1,26 @@
+{% extends 'main.html'%}
+{% load static %}
+<head>
+
+</head>
+
+{% block content %}
+<link rel='stylesheet' type='text/css' media='screen' href="{% static 'styles/launcher.css' %}">
+<h1> HI </h1>
+
+
+<div class = "Frame">
+    {% for process in processes %}
+    <div class = "Row">
+        <a class = "Status-thing" href = "/launcher/handle_process/{{process}}"> 
+            {% if process.status%}
+                ON
+            {% else %}
+                OFF
+            {% endif %}
+        </a> 
+        {{process.name}} 
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
